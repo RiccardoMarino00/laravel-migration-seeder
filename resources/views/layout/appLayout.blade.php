@@ -7,9 +7,13 @@
 </head>
 <body>
 
+    @include ('partials.header')
+
     <main>
         @include ('partials.mainCard')
     </main>
+
+    @include ('partials.footer')
 
 </body>
 </html>
