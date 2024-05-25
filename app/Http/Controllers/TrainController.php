@@ -10,7 +10,7 @@ class TrainController extends Controller
     //
     public function index()
     {
-        $trains = Transport::all();
+        $trains = Transport::whereDate('orario_di_partenza',' =' , now()->toDateString())->get();
         return view('layout.appLayout', compact('trains'));
     }
 }
