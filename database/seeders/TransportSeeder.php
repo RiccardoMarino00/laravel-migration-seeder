@@ -24,10 +24,10 @@ class TransportSeeder extends Seeder
             $new_train = new Transport();
             $new_train->azienda = $faker->company();
             $new_train->stazione_di_partenza = $faker->city()." Train Station";
-            $new_train->stazione_di_arrivo = $faker->city(). " Train Statio";
+            $new_train->stazione_di_arrivo = $faker->city(). " Train Station";
             $new_train->orario_di_partenza = $faker->dateTimeBetween('-2 week', '+2 week');
-            $new_train->orario_di_arrivo = $faker->dateTimeBetween('-2 week', '+2 week');
-            $new_train->codice_treno = $faker->bothify('??####');
+            $new_train->orario_di_arrivo = $faker->dateTimeBetween($new_train->orario_di_partenza, '+2 week');
+            $new_train->codice_treno = $faker->unique()->bothify('??####');
             $new_train->numero_carrozze = $faker->numberBetween(6, 20);
             $new_train->in_orario = $faker->randomElement([true,false]);
             $new_train->cancellato = $faker->randomElement([true,false]);
